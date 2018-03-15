@@ -3,36 +3,99 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    def config = rootProject.extensions.getByName("ext")
+
+    def major = config["major"]
+    def minor = config["minor"]
+    def patch = config["patch"]
+
+    compileSdkVersion config["compileSdk"]
+    buildToolsVersion config["buildTools"]
 
     defaultConfig {
-        applicationId "com.hod.rxclean"
-        minSdkVersion 21
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId config["appId"]
+
+        minSdkVersion config["minSdk"]
+        targetSdkVersion config["targetSdk"]
+
+        versionCode project.hasProperty('versionCode') ? versionCode.toInteger() : 1
+        versionName "${major}.${minor}.${patch}"
+
+        testApplicationId config["testAppId"]
+        testInstrumentationRunner config["testInstrumentationRunner"]
     }
 
     buildTypes {
-        release {
+        debug {
+            testCoverageEnabled true
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.debug
+        }
+        release {
+            testCoverageEnabled false
+            minifyEnabled true
+            shrinkResources true
+//            signingConfig signingConfigs.release
+
+            proguardFiles fileTree(dir: "../config/proguard", include: ["*.pro"]).asList().toArray()
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+
+            matchingFallbacks = ['debug']
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../config/signing/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+
+        release {
+            storeFile file('../config/signing/release.jks')
+            storePassword ""
+            keyAlias "release"
+            keyPassword ""
         }
     }
 }
 
 dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation project(path: ':domain')
 
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.android.support:design:27.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation dependencies.kotlin
 
-    testImplementation 'junit:junit:4.12'
+    implementation dependencies.appCompat
+    implementation dependencies.design
+    implementation dependencies.recyclerView
+    implementation dependencies.card
+    implementation dependencies.constraintLayout
+    implementation dependencies.androidAnnotations
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation dependencies.dagger
+    kapt dependencies.daggerCompiler
+
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+    implementation dependencies.rxBindingsSupport
+    implementation dependencies.rxBindings
+    implementation dependencies.rxBroadcast
+
+    implementation dependencies.glide
+    kapt dependencies.glideAnnontation
+
+    implementation dependencies.googlePlayLocation
+
+    testImplementation testDependencies.junit
+
+    androidTestImplementation testDependencies.runner
+    androidTestImplementation testDependencies.espresso
+    androidTestImplementation testDependencies.espressoContrib
+    androidTestImplementation testDependencies.espressoIntents
 }

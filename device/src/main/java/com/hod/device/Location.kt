@@ -1,6 +1,7 @@
 package com.hod.device
 
 import com.hod.domain.DataProvider
+import io.reactivex.Observable
 import java.util.*
 
 class Location: DataProvider<Locale> {
@@ -8,7 +9,7 @@ class Location: DataProvider<Locale> {
         TODO("not implemented")
     }
 
-    override fun fetch(): Locale {
+    override fun fetch(): Observable<Locale> {
         TODO("not implemented")
     }
 

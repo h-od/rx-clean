@@ -1,13 +1,17 @@
+apply from: 'config/dependencies.gradle'
+apply plugin: 'kotlin'
+
 buildscript {
-    ext.kotlin_version = '1.2.30'
+    ext.kotlinVersion = '1.2.30'
     repositories {
         google()
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha06'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
     }
 }
 
@@ -19,6 +23,5 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+// usage: ./gradlew dependencyUpdates
+//apply plugin: 'com.github.ben-manes.versions'
