@@ -90,8 +90,6 @@ dependencies {
     implementation dependencies.glide
     kapt dependencies.glideAnnontation
 
-    implementation dependencies.googlePlayLocation
-
     testImplementation testDependencies.junit
 
     androidTestImplementation testDependencies.runner

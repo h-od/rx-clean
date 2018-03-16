@@ -33,6 +33,8 @@ dependencies {
 
     implementation dependencies.rxKotlin
 
+    implementation dependencies.googlePlayLocation
+
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espresso
     androidTestImplementation testDependencies.espressoContrib

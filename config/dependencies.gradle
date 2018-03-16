@@ -8,87 +8,86 @@ ext {
 
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
 
-    buildTools = "27.0.3"
+    buildTools = "28.0.0-rc1"
     minSdk = 21
-    targetSdk = 27
-    compileSdk = 27
+    targetSdk = 'android-P'
+    compileSdk = 'android-P'
 
-    supportLibrary = '27.1.0'
-    constraintLayout = '1.0.2'
-    annotations = '25.3.0'
-    dagger = '2.13'
+    supportLibrary = '28.0.0-alpha1'
+    constraintLayout = '1.1.0-beta5'
+    dagger = '2.15'
 
     rxJava = '2.2.0'
-    rxAndroid = '2.0.1'
+    rxAndroid = '2.0.2'
     rxBroadcast = '2.0.0'
-    rxBindings = '2.0.0'
+    rxBindings = '2.1.1'
 
-    glide = '4.5.0'
+    glide = '4.6.1'
 
-    playServices = '11.0.2'
+    playServices = '11.8.0'
 
-    retrofit = '2.3.0'
+    retrofit = '2.4.0'
     retrofitRxAdapter = '1.0.0'
-    okHttp = '3.9.1'
+    okHttp = '3.10.0'
     gson = '2.8.2'
 
     //Testing
     jUnit = '4.12'
     mockito = '2.12.0'
     assertJ = '3.8.0'
-    espresso = '3.0.1'
-    runner = '1.0.1'
+    espresso = '3.0.2-alpha1'
+    runner = '1.0.2-alpha1'
     orchestrator = '1.0.1'
     randomObjectGenerator = 'v0.1.5'
     mockitoKotlin = '1.5.0'
     retrofitMock = '3.9.1'
 
     dependencies = [
-            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
 
-            appCompat         : "com.android.support:appcompat-v7:${supportLibrary}",
-            design            : "com.android.support:design:${supportLibrary}",
-            recyclerView      : "com.android.support:recyclerview-v7:${supportLibrary}",
-            card              : "com.android.support:cardview-v7:${supportLibrary}",
-            constraintLayout  : "com.android.support.constraint:constraint-layout:${constraintLayout}",
-            androidAnnotations: "com.android.support:support-annotations:${annotations}",
+            appCompat         : "com.android.support:appcompat-v7:$supportLibrary",
+            design            : "com.android.support:design:$supportLibrary",
+            recyclerView      : "com.android.support:recyclerview-v7:$supportLibrary",
+            card              : "com.android.support:cardview-v7:$supportLibrary",
+            androidAnnotations: "com.android.support:support-annotations:$supportLibrary",
+            constraintLayout  : "com.android.support.constraint:constraint-layout:$constraintLayout",
 
-            dagger            : "com.google.dagger:dagger:${dagger}",
-            daggerCompiler    : "com.google.dagger:dagger-compiler:${dagger}",
+            dagger            : "com.google.dagger:dagger:$dagger",
+            daggerCompiler    : "com.google.dagger:dagger-compiler:$dagger",
 
-            rxKotlin          : "io.reactivex.rxjava2:rxkotlin:${rxJava}",
-            rxAndroid         : "io.reactivex.rxjava2:rxandroid:${rxAndroid}",
-            rxBindingsSupport : "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:${rxBindings}",
-            rxBindings        : "com.jakewharton.rxbinding2:rxbinding-kotlin:${rxBindings}",
-            rxBroadcast       : "com.cantrowitz:rxbroadcast:${rxBroadcast}",
+            rxKotlin          : "io.reactivex.rxjava2:rxkotlin:$rxJava",
+            rxAndroid         : "io.reactivex.rxjava2:rxandroid:$rxAndroid",
+            rxBindingsSupport : "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:$rxBindings",
+            rxBindings        : "com.jakewharton.rxbinding2:rxbinding-kotlin:$rxBindings",
+            rxBroadcast       : "com.cantrowitz:rxbroadcast:$rxBroadcast",
 
-            glide             : "com.github.bumptech.glide:glide:${glide}",
-            glideAnnontation  : "com.github.bumptech.glide:compiler:${glide}",
+            glide             : "com.github.bumptech.glide:glide:$glide",
+            glideAnnontation  : "com.github.bumptech.glide:compiler:$glide",
 
-            googlePlayLocation: "com.google.android.gms:play-services-location:${playServices}",
+            googlePlayLocation: "com.google.android.gms:play-services-location:$playServices",
 
-            retrofit          : "com.squareup.retrofit2:retrofit:${retrofit}",
-            retrofitGson      : "com.squareup.retrofit2:converter-gson:${retrofit}",
-            retrofitRxAdapter : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${retrofitRxAdapter}",
-            okHttp            : "com.squareup.okhttp3:okhttp:${okHttp}",
-            okHttpLogging     : "com.squareup.okhttp3:logging-interceptor:${okHttp}",
-            gson              : "com.google.code.gson:gson:${gson}"
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofit",
+            retrofitGson      : "com.squareup.retrofit2:converter-gson:$retrofit",
+            retrofitRxAdapter : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$retrofitRxAdapter",
+            okHttp            : "com.squareup.okhttp3:okhttp:$okHttp",
+            okHttpLogging     : "com.squareup.okhttp3:logging-interceptor:$okHttp",
+            gson              : "com.google.code.gson:gson:$gson"
     ]
 
     testDependencies = [
-            junit                : "junit:junit:${jUnit}",
-            mockito              : "org.mockito:mockito-core:${mockito}",
-            assertj              : "org.assertj:assertj-core:${assertJ}",
+            junit                : "junit:junit:$jUnit",
+            mockito              : "org.mockito:mockito-core:$mockito",
+            assertj              : "org.assertj:assertj-core:$assertJ",
 
-            espresso             : "com.android.support.test.espresso:espresso-core:${espresso}",
-            espressoContrib      : "com.android.support.test.espresso:espresso-contrib:${espresso}",
-            espressoIntents      : "com.android.support.test.espresso:espresso-intents:${espresso}",
-            runner               : "com.android.support.test:runner:${runner}",
+            espresso             : "com.android.support.test.espresso:espresso-core:$espresso",
+            espressoContrib      : "com.android.support.test.espresso:espresso-contrib:$espresso",
+            espressoIntents      : "com.android.support.test.espresso:espresso-intents:$espresso",
+            runner               : "com.android.support.test:runner:$runner",
 
-            mockWebServer        : "com.squareup.okhttp3:mockwebserver:${okHttp}",
-            orchestrator         : "com.android.support.test:orchestrator:${orchestrator}",
-            randomObjectGenerator: "com.github.random-object-kreator:random-object-kreator:${randomObjectGenerator}",
-            mockitoKotlin        : "com.nhaarman:mockito-kotlin:${mockitoKotlin}",
-            retrofitMock         : "com.squareup.okhttp3:mockwebserver:${retrofitMock}"
+            mockWebServer        : "com.squareup.okhttp3:mockwebserver:$okHttp",
+            orchestrator         : "com.android.support.test:orchestrator:$orchestrator",
+            randomObjectGenerator: "com.github.random-object-kreator:random-object-kreator:$randomObjectGenerator",
+            mockitoKotlin        : "com.nhaarman:mockito-kotlin:$mockitoKotlin",
+            retrofitMock         : "com.squareup.okhttp3:mockwebserver:$retrofitMock"
     ]
 }
